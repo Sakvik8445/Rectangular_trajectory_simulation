@@ -1,0 +1,40 @@
+zero
+y
+sp 30
+
+edit exercise2
+glueempty = 1009
+gluefull = 1010
+tool pen
+signal 5
+reacti glueempty,glue
+appro board:a,50
+closei
+moves board:a
+moves board:b
+moves board:c
+moves board:d
+moves board:a
+openi
+departs 50
+move wait.loc
+set board = board:shift(null by 10,10,0)
+e
+
+edit glue
+set current.loc = here
+set arrival = dest
+openi
+departs 50
+appro recharge,50
+moves recharge
+wait sig(gluefull)
+departs 50
+appro current.loc, 50
+moves current.loc
+moves arrival
+e
+
+load glue.lc
+load alltools.v2
+
